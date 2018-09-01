@@ -28,7 +28,7 @@ document.addEventListener("selectionchange", function() { RE.backuprange(); });
 
 // Initializations
 RE.callback = function() {
-    window.location.href = "re-callback://" + encodeURI(RE.getHtml());
+    window.location.href = "re-callback://" + encodeURIComponent(RE.getHtml());
 }
 
 RE.setHtml = function(contents) {
@@ -179,6 +179,16 @@ RE.setBlockquote = function() {
 RE.insertImage = function(url, alt) {
     var html = '<img src="' + url + '" alt="' + alt + '" />';
     RE.insertHTML(html);
+}
+
+RE.insertImage = function(url, alt, width) {
+    var html = '<img src="' + url + '" alt="' + alt + '" width="'+width+'"/>';
+    RE.insertHTML(html);
+}
+
+RE.insertImage = function(url, alt, width, height) {
+ var html = '<img src="' + url + '" alt="' + alt + '" width="'+width+'" height="'+height+'"/>';
+RE.insertHTML(html);
 }
 
 RE.insertHTML = function(html) {
